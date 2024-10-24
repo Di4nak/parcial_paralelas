@@ -1,3 +1,5 @@
+# Diana Carolina Micolta 2028287-3743
+
 # Procesamiento de imágenes
 
 Este directorio contiene un conjunto de códigos que permiten aplicar un conjunto de filtros básicos a una imagen usando el lenguaje C.
@@ -5,13 +7,13 @@ Los filtros que se pueden aplicar son:
 
 - Filtro de desenfoque.
 - Filtro de detección de bordes.
-- Filtro de Realce. 
+- Filtro de Realce.
 
 El programa `main.c` contiene el código para aplicar estos filtros.
 Este programa lee la información de los bits que representan una imagen y hace las transformaciones necesarias.
 Se han desarrollado dos scripts en Python que permiten extraer los bits de información de una imagen en formato PNG (`fromPNG2Bin.py`) y toma un conjunto de bits y los almacena de regreso en una imagen en formato PNG (`fromBin2PNG.py`).
 
-Se ha desarrollado un script en Bash llamado `all.sh` y el cual integra los códigos descritos anteriormente para aplicar un filtro a una imagen. 
+Se ha desarrollado un script en Bash llamado `all.sh` y el cual integra los códigos descritos anteriormente para aplicar un filtro a una imagen.
 
 El `Makefile` permite la compilación y ejecución de los códigos/archivos descritos anteriormente.
 
@@ -19,7 +21,7 @@ El `Makefile` permite la compilación y ejecución de los códigos/archivos desc
 - `make compile` permite la compilación del programa `main.c`.
 - `make clean` borra archivos creados durante la compilación y la ejecución del programa.
 
-## Descripción 
+## Descripción
 
 El script `all.sh` usa tres programas le aplican un filtro a una imagen PNG de 1024x1024.
 
@@ -34,13 +36,13 @@ python3 fromPNG2Bin.py ${INPUT_PNG}
 python3 fromBin2PNG.py ${TEMP_FILE}.new
 ```
 
-Los tres programas que se usan son `fromPNG2Bin.py`, `fromBin2PNG.py` y `main`. 
+Los tres programas que se usan son `fromPNG2Bin.py`, `fromBin2PNG.py` y `main`.
 En este caso se asume que `image.png` es una imagen PNG de 1024x1024.
 Lo que hace el script `fromPNG2Bin.py` es convertir la imagen de formanto PNG a una secuencia de pixeles.
 Esa secuencia de pixeles queda almacenada en `image.bin` (`${TEMP_FILE}`).
-Sobre los datos en `image.bin` se aplica un filtro que está en el archivo `./main`. 
+Sobre los datos en `image.bin` se aplica un filtro que está en el archivo `./main`.
 Al terminar la ejecución del programa `main` se genera un archivo en este caso llamado `image.bin.new`.
-El archivo `image.bin.new` es pasado al script `fromBin2PNG.py` y genera un nuevo archivo llamado `image.bin.PNG`. 
+El archivo `image.bin.new` es pasado al script `fromBin2PNG.py` y genera un nuevo archivo llamado `image.bin.PNG`.
 Este archivo es el archivo que contiene el PNG alterado.
 
 ## Otros posibles filtros
@@ -126,4 +128,3 @@ void aplicarFiltro(int *imagen, int *imagenProcesada, int width, int height) {
 }
 
 ```
-
