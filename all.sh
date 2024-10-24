@@ -7,9 +7,10 @@
 #
 # Autor: John Sanabria - john.sanabria@correounivalle.edu.co
 # Fecha: 2024-08-22
-#
-INPUT_PNG="image.png"
-TEMP_FILE="image.bin"
-python3 fromPNG2Bin.py ${INPUT_PNG}
-./main ${TEMP_FILE}
-python3 fromBin2PNG.py ${TEMP_FILE}.new
+# Procesar todas las imágenes PNG en la carpeta actual
+for INPUT_JPG in *.jpg; do
+    TEMP_FILE="${INPUT_JPG%.jpg}.bin"
+    python3 fromJPG2Bin.py "${INPUT_JPG}"
+    ./main "${TEMP_FILE}"
+    python3 fromBin2JPG.py "${TEMP_FILE}.new"
+done
