@@ -1,11 +1,11 @@
 all: compile exe
 
 compile:
-	gcc -o main.exe main.c
+	gcc -o main main.c
 
 exe:
-	@echo "Ejecutando all.bat..."
-	call all.bat
+	./all.sh
 
 clean:
-	del main.exe *.bin*
+	rm -f main *.bin*
+
